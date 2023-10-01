@@ -1,0 +1,24 @@
+#!groovy
+// Check URL properties
+properties([disableConcurrentBuilds()])
+pipeline {
+agent {
+label 'master'
+}
+options {
+buildDiscarder(logRotator(numToKeepStr: '100', artifactNumToKeepStr: '100'))
+timestamps()
+}
+stages {
+stage("First step") {
+steps {
+echo 'first stepppppp'
+}
+}
+stage("second step") {
+steps {
+echo 'second'
+}
+}
+}
+}
